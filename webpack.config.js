@@ -31,9 +31,7 @@ module.exports = env => {
   /////////  以上是判断是否有命令行参数从而对应处理
 
   return {
-    entry: {
-      app: './app/js/main.js'
-    },
+    entry: ['./app/js/viewport.js', './app/js/main.js'],
 
     devServer: {
       contentBase: path.join(__dirname, 'dist'),
