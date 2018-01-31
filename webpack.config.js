@@ -57,20 +57,20 @@ module.exports = env => {
               ? {
                   css: ExtractTextPlugin.extract({
                     use:
-                      'css-loader?minimize!px2rem-loader?remUnit=75&remPrecision=8',
+                      'css-loader?minimize!px2rem-loader?remUnit=40&remPrecision=8',
                     fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
                   }),
                   scss: ExtractTextPlugin.extract({
                     use:
-                      'css-loader?minimize!px2rem-loader?remUnit=75&remPrecision=8!sass-loader',
+                      'css-loader?minimize!px2rem-loader?remUnit=40&remPrecision=8!sass-loader',
                     fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
                   })
                 }
               : {
                   css:
-                    'vue-style-loader!css-loader!px2rem-loader?remUnit=75&remPrecision=8',
+                    'vue-style-loader!css-loader!px2rem-loader?remUnit=40&remPrecision=8',
                   scss:
-                    'vue-style-loader!css-loader!px2rem-loader?remUnit=75&remPrecision=8!sass-loader'
+                    'vue-style-loader!css-loader!px2rem-loader?remUnit=40&remPrecision=8!sass-loader'
                 }
           }
         },
