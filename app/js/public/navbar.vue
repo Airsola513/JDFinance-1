@@ -8,7 +8,7 @@
         </router-link>
       </li>
       <li :class="$style.item">
-        <router-link to="home">
+        <router-link to="money">
           <img src="//img12.360buyimg.com/jrpmobile/jfs/t3811/55/345433999/2930/116d3dd1/580f1e25N028a1f2c.png?width=66&height=66" alt="理财">
           <p>理财</p>
         </router-link>
