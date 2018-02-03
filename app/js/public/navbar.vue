@@ -20,7 +20,7 @@
         </router-link>
       </li>
       <li :class="$style.item">
-        <router-link to="home">
+        <router-link to="raise">
           <img src="//img12.360buyimg.com/jrpmobile/jfs/t3604/98/635506544/2317/443d3a51/580f240aNbee3dcc4.png?width=66&height=66" alt="众筹">
           <p>众筹</p>
         </router-link>
