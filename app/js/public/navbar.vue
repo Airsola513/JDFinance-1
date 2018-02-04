@@ -26,7 +26,7 @@
         </router-link>
       </li>
       <li :class="$style.item">
-        <router-link to="home">
+        <router-link to="mine">
           <img src="//img12.360buyimg.com/jrpmobile/jfs/t3340/68/639059082/2591/800e2d6b/580f51cdN4caf20b2.png?width=66&height=66" alt="我的">
           <p>我的</p>
         </router-link>
@@ -51,6 +51,7 @@ export default {
 @import '../../css/element.scss';
 .panel {
   @include panel;
+  z-index: 3;
   height: 100px;
   position: fixed;
   left: 0;

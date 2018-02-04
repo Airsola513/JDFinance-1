@@ -86,3 +86,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.router-link-exact-active {
+  p {
+    color: #ff0000 !important;
+  }
+}

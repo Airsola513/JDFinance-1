@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-.swiper-container {
+.swiper-container-vertical {
   height: 72px;
   .swiper-slide {
     font-family: PingFangSC-Medium;

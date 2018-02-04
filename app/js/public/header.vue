@@ -1,7 +1,9 @@
 <template>
   <div :class="$style.header">
     <span :class="$style.left">注册 | 登录</span>
-    <span :class="$style.right">APP下载</span>
+    <router-link to="download" :class="$style.right">
+     APP下载
+    </router-link> 
   </div>
 </template>
 
@@ -41,6 +43,7 @@ export default {
     min-width: 120px;
     height: 56px;
     line-height: 56px;
+    text-decoration: none;
     margin-top: -28px;
     background: #f04752;
     color: #fff;
