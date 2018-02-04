@@ -1,9 +1,10 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin') //提取 CSS 到单个文件
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin') //压缩js代码
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');  
+const CleanWebpackPlugin = require('clean-webpack-plugin');  
+const ExtractTextPlugin = require('extract-text-webpack-plugin');  
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = env => {
   if (!env) {
     env = {}
@@ -17,7 +18,6 @@ module.exports = env => {
   ]
 
   if (env.production) {
-    //有参数时再添加这些插件(打包时)
     plugins.push(
       new webpack.DefinePlugin({
         'process.env': {
@@ -25,14 +25,15 @@ module.exports = env => {
         }
       }),
       new ExtractTextPlugin('style.css'),
-      new UglifyJsPlugin()
+      new UglifyJsPlugin({
+        sourceMap: true
+      })
     )
   }
-  /////////  以上是判断是否有命令行参数从而对应处理
 
   return {
     entry: ['./app/js/viewport.js', './app/js/main.js'],
-
+    devtool: 'source-map',
     devServer: {
       contentBase: path.join(__dirname, 'dist'),
       compress: true,
@@ -53,17 +54,17 @@ module.exports = env => {
               localIdentName: '[path][name]---[local]---[hash:base64:5]',
               camelCase: true
             },
-            loaders: env.production //根据是否有参数，决定是否提取css到单个文件，打包时需要
+            loaders: env.production
               ? {
                   css: ExtractTextPlugin.extract({
                     use:
                       'css-loader?minimize!px2rem-loader?remUnit=40&remPrecision=8',
-                    fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
+                    fallback: 'vue-style-loader' 
                   }),
                   scss: ExtractTextPlugin.extract({
                     use:
                       'css-loader?minimize!px2rem-loader?remUnit=40&remPrecision=8!sass-loader',
-                    fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
+                    fallback: 'vue-style-loader'
                   })
                 }
               : {
